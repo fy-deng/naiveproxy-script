@@ -134,13 +134,12 @@ After=network.target network-online.target
 Requires=network-online.target
 
 [Service]
-User=root
-Group=root
+User=isvc
 ExecStart=/usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
 ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile
 TimeoutStopSec=5s
 PrivateTmp=true
-ProtectSystem=full
+ProtectSystem=strict
 
 [Install]
 WantedBy=multi-user.target
